@@ -16,7 +16,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
     const query = await notion.databases.query({
       database_id: notionDatabaseId,
     });
-
+    //@ts-ignore
     const rows = query.results.map((res) => res.properties);
     const rowStructured = rows.map((row) => ({
       title: row.Title.title[0].text.content,

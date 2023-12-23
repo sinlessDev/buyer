@@ -1,7 +1,15 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
+interface Product {
+  id: number;
+  title: string;
+  link: string;
+  brand: string;
+  price: string;
+  description: string;
+  image: string;
+}
 const ProductSkeleton = () => {
   return (
     <div className="border border-gray-200 shadow rounded-md p-4 max-w-sm w-full mx-auto">
@@ -23,7 +31,7 @@ const ProductSkeleton = () => {
 };
 
 export default function Example() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -61,7 +69,7 @@ export default function Example() {
             : data.length > 0 &&
               data.map((product) => (
                 <div
-                  key={product}
+                  key={product.id}
                   className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
                 >
                   <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
