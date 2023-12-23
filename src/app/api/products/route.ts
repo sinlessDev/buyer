@@ -1,6 +1,5 @@
 import { Client } from "@notionhq/client";
-import type { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 const notionSecret = process.env.NOTION_SECRET!;
 const notionDatabaseId = process.env.NOTION_DATABASE_ID!;
@@ -12,7 +11,7 @@ if (!notionSecret || !notionDatabaseId) {
 const notion = new Client({ auth: notionSecret });
 
 // Named export for the GET method
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest, res: NextResponse) {
   try {
     const query = await notion.databases.query({
       database_id: notionDatabaseId,
@@ -36,6 +35,5 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
     // res.status(200).json({ name: "John Doe" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
   }
 }
