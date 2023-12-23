@@ -10,8 +10,7 @@ if (!notionSecret || !notionDatabaseId) {
 
 const notion = new Client({ auth: notionSecret });
 
-// Named export for the GET method
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET() {
   try {
     const query = await notion.databases.query({
       database_id: notionDatabaseId,
@@ -27,13 +26,12 @@ export async function GET(req: NextRequest, res: NextResponse) {
       price: row.Price.number,
     }));
 
-    console.log(rowStructured);
-
     return NextResponse.json({
       data: rowStructured,
     });
-    // res.status(200).json({ name: "John Doe" });
   } catch (error) {
-    console.error(error);
+    return NextResponse.json({
+      error: error,
+    });
   }
 }
