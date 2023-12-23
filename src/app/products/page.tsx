@@ -9,7 +9,7 @@ interface Product {
   image: string;
 }
 
-async function getData() {
+export async function getData() {
   const res = await fetch(process.env.NEXT_PUBLIC_VERCEL_URL + "/api/products");
 
   if (!res.ok) {
