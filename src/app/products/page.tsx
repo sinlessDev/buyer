@@ -1,6 +1,4 @@
-import { GetServerSideProps } from "next";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 interface Product {
   id: number;
   title: string;
@@ -12,7 +10,7 @@ interface Product {
 }
 
 async function getData() {
-  const res = await fetch("http://localhost:3001/api/products");
+  const res = await fetch("http://localhost:3000/api/products");
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
