@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 const notionSecret = process.env.NOTION_SECRET!;
 const notionDatabaseId = process.env.NOTION_DATABASE_ID!;
