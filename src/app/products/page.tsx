@@ -9,7 +9,7 @@ interface Product {
   image: string;
 }
 
-export async function getData() {
+async function getData() {
   const res = await fetch(process.env.NEXT_PUBLIC_VERCEL_URL + "/api/products");
 
   if (!res.ok) {
@@ -18,6 +18,7 @@ export async function getData() {
 
   return res.json();
 }
+
 export default async function Products() {
   const products: { data: Product[] } = await getData();
 
