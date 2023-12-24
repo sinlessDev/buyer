@@ -12,23 +12,15 @@ const notion = new Client({ auth: notionSecret });
 
 export async function GET() {
   try {
-    const query = await notion.databases.query({
+    const query2 = await notion.databases.retrieve({
       database_id: notionDatabaseId,
     });
-
     //@ts-ignore
-    const rows = query.results.map((res) => res.properties);
-    const rowStructured = rows.map((row) => ({
-      title: row.title.title[0].text.content,
-      brand: row.brand.select.name,
-      desctiption: row.description.rich_text[0].text.content,
-      link: row.link.rich_text[0].text.content,
-      image: row.image.files[0].file.url,
-      price: row.price.number,
-    }));
-
+    const brands = query2.properties.brand.select.options.map(
+      (item: any) => item.name
+    );
     return NextResponse.json({
-      data: rowStructured,
+      data: brands,
     });
   } catch (error) {
     return NextResponse.json({

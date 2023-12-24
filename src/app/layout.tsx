@@ -26,15 +26,15 @@ export default function RootLayout({
             <div className="text-center flex items-center">
               <Link href={"/"}>
                 <ul className="items-center text-4xl font-semibold justify-end flex-1 list-none lg:pt-0 lg:flex">
-                  Buyer
+                  KZBuyer
                 </ul>
               </Link>
             </div>
 
-            <div className=" mr-3 space-x-4 flex items-center justify-center">
+            {/* <div className=" mr-3 space-x-4 flex items-center justify-center">
               <Button variant="outline">Tommy</Button>
               <Button className="btn">Guess</Button>
-            </div>
+            </div> */}
           </nav>
         </Container>
         {children}
