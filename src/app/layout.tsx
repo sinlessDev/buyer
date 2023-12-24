@@ -8,7 +8,7 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "kzbuyer - бренд может быть дешевым",
+  title: "kzbuyer - Бренд может быть дешевым",
   description: "clubbie.club -> загугли",
 };
 
