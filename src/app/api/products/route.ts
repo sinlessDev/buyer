@@ -22,8 +22,7 @@ export async function GET() {
       brand: row.Brand.multi_select[0].name,
       desctiption: row.Description.rich_text[0].text.content,
       link: row.Link.rich_text[0].text.content,
-      image:
-        "https://prod-files-secure.s3.us-west-2.amazonaws.com/fbaa6ef9-ee58-40dc-849c-dab40581e35b/c53135af-36d3-48df-a060-62cc2ac72d18/A6MPS001-hero.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20231224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231224T194515Z&X-Amz-Expires=3600&X-Amz-Signature=7dbb0d554e8db88c4285d787f7e2a5d47a0f3045e32879fe7edba53017922b06&X-Amz-SignedHeaders=host&x-id=GetObject",
+      image: row.Image.files[0].file.url,
       price: row.Price.number,
     }));
 
